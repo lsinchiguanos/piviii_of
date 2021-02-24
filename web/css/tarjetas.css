@@ -1,0 +1,180 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-nov-2019, 0:07:46
+    Author     : Mayra
+*/
+@import url('https://fonts.googleapis.com/css?family=Jomolhari|Roboto&display=swap');
+
+@font-face 
+{
+	font-family: "minimalistabold";
+	src: url('https://cdn.staticaly.com/gh/imjosecordero/fuentes/6551c70d/unisansbold.ttf');
+}
+
+@font-face 
+{
+	font-family: "minimalistathin";
+	src: url('https://cdn.staticaly.com/gh/imjosecordero/fuentes/6551c70d/unisansthin.ttf');
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    font-family: 'Jomolhari', serif;
+}
+.title{
+    text-align: center;
+    font-size: 48px;
+    color:#6a1b9a;
+    margin-top: 108px;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 100%;
+    max-width:1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+.container .card{
+    width :330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+       
+}
+.container .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+    
+}
+.container .card img{
+    width: 330px;
+    height: 220px;
+    
+}
+.container .card h4{
+    font-weight: 600;
+}
+.container .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+.container .card a{
+    font-weight: 500;
+    text-decoration: none;
+    color:#3498db;
+}
+
+#divlogo
+{
+    width:90%; 
+    margin:auto;
+}
+#divlogo{
+        display:block;
+        text-align:center;
+        height: 50px;
+    }
+    
+#logotipo img
+{
+    margin-left:0px;
+    margin-top:15px;
+    vertical-align: bottom;
+    height:50px;
+    weight:50px;
+}
+#logotipo
+{
+    display:inline-block;
+    line-height: 70px;
+    margin-bottom:20px;
+    transition-duration: 0.4s;
+}
+
+#logotipo p
+{
+    display: inline-block;
+    font-family: "FuenteBox";
+    font-size: 20px;
+    margin-top:0px;
+    margin-left:15px;
+    color: white;
+    height: 50px;
+    vertical-align: middle;
+}
+#fondocolors {
+	width: 100%;
+	height: 200px;
+	color: #fff;
+    padding-bottom: 30px;
+	background: linear-gradient(-40deg, #A22B25, #FE6F61, #F3A769, #027997);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.divprincipal
+{
+    width:86%;
+    margin:auto;
+    margin-top:30px;
+}
+

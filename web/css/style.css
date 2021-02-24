@@ -1,0 +1,430 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-oct-2019, 23:24:58
+    Author     : Mayra
+*/
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color:#FBFCFF;
+}
+
+@font-face 
+{
+	font-family: "minimalistabold";
+	src: url('https://cdn.staticaly.com/gh/imjosecordero/fuentes/6551c70d/unisansbold.ttf');
+}
+
+@font-face 
+{
+	font-family: "minimalistathin";
+	src: url('https://cdn.staticaly.com/gh/imjosecordero/fuentes/6551c70d/unisansthin.ttf');
+}
+
+.divprincipal
+{
+    width:86%;
+    margin:auto;
+    margin-top:30px;
+}
+
+.divsecond
+{
+    width:90%;
+    margin:auto;
+}
+
+.fuentebold
+{
+    font-family: 'minimalistabold';
+}
+
+.colorplomo
+{
+    color: #6E7379;
+}
+
+.fuentethin
+{
+    font-family: 'minimalistathin';
+}
+
+.fuentesegoe
+{
+    font-family: 'Segoe UI';
+}
+
+.tarjeta
+{
+    border-radius: 7px;
+    background-color: white;
+    border:solid;
+    border-color:#dddddd;
+    border-bottom-width:1px;
+    border-top-width:1px;
+    border-left-width:1px;
+    border-right-width:1px;
+    box-shadow:none;
+    padding: 11px 0 11px 0;
+    margin:auto;
+    margin-top:11px;
+    margin-bottom:11px;
+    /*-webkit-box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.16);*/
+    
+
+}
+.centrado
+{
+    margin:auto;
+    text-align:center;
+}
+
+.btnazul {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  margin-top:5px;
+  margin-bottom:5px;
+  border: 2px solid #2d72c8;
+  border-radius: 0.6em;
+  color: #2d72c8;
+  padding:5px 10px;
+  cursor: pointer;
+  align-self: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+}
+.btnazul:hover, .btnazul:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.btnazul span
+{
+    margin-right:6px;
+     font-size:16px; 
+    height: 17px; 
+    vertical-align:middle;
+}
+
+.firstazul {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.firstazul:hover {
+  box-shadow: 0 0 40px 40px #2d72c8 inset;
+}
+
+
+
+
+.btnverde {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  margin-top:5px;
+  margin-bottom:5px;
+  border: 2px solid #2d72c8;
+  border-radius: 0.6em;
+  color: #2d72c8;
+  padding:5px 10px;
+  cursor: pointer;
+  align-self: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+}
+.btnverde:hover, .btnverde:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.btnverde span
+{
+    margin-right:6px;
+    font-size:16px; 
+    height: 17px; 
+    vertical-align:middle;
+}
+
+.firstverde {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.firstverde:hover {
+  box-shadow: 0 0 40px 40px #2d72c8 inset;
+}
+
+.btnrojo {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  margin-top:5px;
+  margin-bottom:5px;
+  border: 2px solid #2d72c8;
+  border-radius: 0.6em;
+  color: #2d72c8;
+  padding:5px 10px;
+  cursor: pointer;
+  align-self: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+}
+.btnrojo:hover, .btnrojo:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.btnrojo span
+{
+    margin-right:6px;
+    font-size:16px; 
+    height: 17px; 
+    vertical-align:middle;
+}
+
+.firstrojo {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.firstrojo:hover {
+  box-shadow: 0 0 40px 40px #2d72c8 inset;
+}
+
+
+
+#divtitulo
+{
+    width:90%; 
+    margin:auto;
+    transition-duration: 0.4s;
+}
+
+#divsubt div
+{
+    margin-left:30px;
+}
+
+#divsubt
+{
+    width:60%; 
+    margin:auto; 
+    display:inline-block; 
+    margin-top:-100px;
+    transition-duration: 0.4s;
+}
+
+#paricons
+{
+    color:white; 
+    background-color: #2d72c8; 
+    border-radius:20px; 
+    margin-bottom:20px; 
+    width: 340px; 
+    height:30px; 
+    font-size: 16px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+@media screen and (max-width:800px)
+{
+    #logotipo img {
+        margin-left: 0px;
+    }
+    .divforlog
+    {
+        display:block;
+        justify-content: center; 
+        align-items: center;
+        text-align: center;
+        width:100%;
+        margin-left:0px;
+        margin-top:10px;
+    }
+
+    #divlogo{
+        display:block;
+        text-align:center;
+        height: 40px;
+    }
+
+    #divtitulo
+    {
+        width:100%;
+        display:block;
+        height:100px;
+    }
+    
+        
+    #divsubt
+    {
+        width:100%; 
+        margin:auto; 
+        
+        display:block; 
+        margin-top:-100px;
+        justify-content: center; 
+        align-items: center;
+        text-align: center;
+    }
+
+    #divsubt div{
+        margin-left:0;
+    }
+    
+    #diviconos
+    {
+        width:100%; 
+        /*height:200px;*/ 
+        height:auto;
+        margin:auto;
+        padding-top:30px;
+        text-align: center;
+        display:block;
+        justify-content: center; 
+        align-items: center;
+    }
+    
+    #diviconos div
+    {
+        /*border:solid;
+        border-color:black;*/
+        /*width:170px;*/ 
+        width:30%;
+        margin-bottom:30px;
+        margin-top:30px;
+        height: auto;
+        display:block; 
+        text-align:center; 
+        margin:auto;
+       
+    }
+
+    #paricons
+    {
+        margin:auto;
+        display:block;
+        padding-top:5px;
+        justify-content: center; 
+        align-items: center;
+    }
+
+    #paricons img
+    {
+        padding-top:5px;
+        height:18px; 
+        width:18px;
+    }
+    
+    body
+    {
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width:400px) 
+{
+     #logotipo img {
+        margin-left: 0px;
+    }
+
+    
+    #divlogin
+{
+    /*margin-left: 880px;*/
+    border-radius: 10px;
+    background-color: white;
+    box-shadow:none;
+    height: 500px;
+    width: 100%;
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+}
+
+.divforlog
+{
+    width:100%; 
+    margin:auto; 
+    display:inline-block; 
+    margin-left: 1%; 
+    text-align:center;
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+
+}
+
+#diviconos
+{
+    width:100%; 
+    height:auto; 
+    display:block;
+    margin-left:0;
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+    justify-content: center; 
+        align-items: center;
+
+}
+
+#diviconos div
+{
+    /*border:solid;
+    border-color:black;*/
+    /*width:170px;*/ 
+    width:60%;
+    height: 180px;
+    display:block; 
+    text-align:center; 
+    justify-content: center; 
+        align-items: center;
+    margin:auto;
+    text-align:center;
+}
+
+#divsubt div{
+        margin-left:0;
+    }
+}
+
+
+
+.plomoclaro
+{
+  color:#dddddd;
+}
+
+
