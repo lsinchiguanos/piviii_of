@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/* global cont, firebase */
+/* global cont, firebase, html2pdf */
 var db = firebase.database();
 
 function getRecordatorio() {
@@ -39,5 +39,13 @@ function getRecordatorios(mac, datoBuscar, i) {
 
 function eliminarFila() {
     $('#contentTable tbody tr').remove();
+}
+;
+
+function getPDF() {
+    const invoice = this.document.getElementById("invoice");
+    console.log(invoice);
+    console.log(window);
+    html2pdf().from(invoice).save();
 }
 ;
