@@ -4,7 +4,6 @@
     Author     : sinchijr
 --%>
 
-<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,31 +37,18 @@
         <script src="lib/js/es.js" type="text/javascript"></script>
 
     </head>
-    <%
-        HttpSession s = request.getSession();
-        //variables de session
-    %>
     <body class="is-preload">
-        <header id="header">
+        <header id="header" style="">
             <a class="logo" href="Principal.jsp">
                 <img style="margin-top:8px"src="img/circled_left_30px.png" title="Ir a la página anterior" alt="logo">
             </a>
-            <a class="logo" id="ulUserData" href="index.html">${sessionScope.nombre}</a>
-
-            <nav>
-                <a href="" style="color:white" ></a>
-            </nav>
         </header>
         <div style="width:15px; height:20px"></div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col-7">
-                    <div id="CalendarioWeb"></div>
-                </div>
-                <div class="col"></div>
-            </div>
+        <div class="row">
+            <form class="col-12">
+                <button type="button" class="btn" data-toggle="modal" data-target="#eventoModal">Registrar</button>
+            </form>
         </div>
 
         <!-- Modal -->
@@ -91,17 +77,13 @@
                                 <input type="hidden" id="txtCreador">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label>Título:</label>
-                                        <input type="text" name="txtTitulo" id="txtTitulo" class="form-control" placeholder="Título de la actividad" required>
-                                    </div>
-                                    <div class="form-group col-md-12">
                                         <label>Destinatario:</label>
                                         <select id="txtDestinatario" class="form-control" required>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label>Descripción:</label>
-                                        <textarea id="txtDecripcion" class="form-control" rows="3"></textarea>
+                                        <label>Mensaje:</label>
+                                        <textarea id="txtMensaje" class="form-control" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -110,37 +92,17 @@
                                     <div class="form-group col-md-6">
                                         <label>Fecha:</label>
                                         <div class="input-group">
-                                            <input type="text" id="txtFechaInicio" class="form-control" placeholder="aaaa-mm-dd" disabled>
+                                            <input type="text" id="txtFecha" class="form-control" placeholder="aaaa-mm-dd" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Hora a recordar:</label>
                                         <div class="input-group clockpicker" data-autoclose="true">
-                                            <input type="text" id="txtHoraRecordar" class="form-control" required maxlength="5">
+                                            <input type="text" id="txtHora" class="form-control" required maxlength="5">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-clock-o fa-fw fa-2x"></i>
                                             </span>
                                         </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Días duración:</label>
-                                        <input type="text" id="txtDiaDuracion" class="form-control" pattern="([0-9])" min="0" max="30" value="0" placeholder="0" maxlength="2">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Frecuencia en hora:</label>
-                                        <input type="text" id="txtHoraFrecuencia" class="form-control" pattern="([0-9])" min="0" max="24" value="0" placeholder="0" maxlength="2">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Tiempo pre-aviso (min):</label>
-                                        <input type="text" id="txtPreAviso" class="form-control" pattern="([0-9])" min="3" max="60" value="30" placeholder="30" maxlength="2">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Tiempo pos-aviso (min):</label>
-                                        <input type="text" id="txtPosAviso" class="form-control" pattern="([0-9])" min="3" max="60" value="30" placeholder="30" maxlength="2">
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label>Color:</label>
-                                        <input type="color" name="txtColor" id="txtColor" value="#ffb6c1" class="form-control" style="height: 30px;" placeholder="#ffb6c1">
                                     </div>
                                 </div>
                             </div>
@@ -162,16 +124,10 @@
 
             function limpiarFormario() {
                 $('#txtId').val('0');
-                $('#txtCreador').val('');
+                $('#txtMensaje').val('');
                 $('#txtDestinatario').val('');
-                $('#txtTitulo').val('');
-                $('#txtFechaInicio').val('');
-                $('#txtHoraRecordar').val('');
-                $('#txtDiaDuracion').val('');
-                $('#txtHoraFrecuencia').val('');
-                $('#txtPreAviso').val('');
-                $('#txtPosAviso').val('');
-                $('#description').val('');
+                $('#txtFecha').val('');
+                $('#txtHora').val('');
             }
             ;
 
@@ -205,29 +161,16 @@
             ;
 
             function recolectarInformacion() {
-                var dias = $('#txtDiaDuracion').val();
-                var fechaInita = $('#txtFechaInicio').val();
-                var horaInita = $('#txtHoraRecordar').val();
+                var fechaInita = $('#txtFecha').val();
+                var horaInita = $('#txtHora').val();
                 fechaInita = fechaInita + " " + horaInita;
-                var minutosAdd = $('#txtPosAviso').val();
-                var fechaFin = moment(fechaInita).add(dias, 'days').add(minutosAdd, 'm');
-                var datosFinales = moment(fechaFin._d).format('YYYY-MM-DD HH:mm').split(" ");
-                fechaFin = datosFinales[0];
-                minutosAdd = datosFinales[1];
                 NuevoEvento = {
                     id: $('#txtId').val(),
-                    usercreated: <%=session.getAttribute("id")%>,
                     userdestined: $('#txtDestinatario').val(),
-                    title: $('#txtTitulo').val(),
-                    start: $('#txtFechaInicio').val() + " " + $('#txtHoraRecordar').val(),
-                    end: fechaFin.toString() + " " + minutosAdd.toString(),
-                    diaduracion: $('#txtDiaDuracion').val(),
-                    horafrecuente: $('#txtHoraFrecuencia').val(),
-                    preaviso: $('#txtPreAviso').val(),
-                    posaviso: $('#txtPosAviso').val(),
-                    description: $('#txtDecripcion').val(),
-                    color: $('#txtColor').val(),
-                    horaaviso: $('#txtHoraRecordar').val()
+                    title: $('#txtMensaje').val(),
+                    start: $('#txtFecha').val() + " " + $('#txtHora').val(),
+                    end: $('#txtFecha').val() + " " + $('#txtHora').val(),
+                    horaaviso: $('#txtHora').val()
                 };
             }
             ;
@@ -256,7 +199,7 @@
                     dayClick: function (date, jsEvent, view) {
                         //var m = moment(date.format()).format('L');
                         limpiarFormario();
-                        $('#txtFechaInicio').val(date.format());
+                        $('#txtFecha').val(date.format());
                         llenarCombo();
                         $('#eventoModal').modal();
                     },
@@ -264,18 +207,11 @@
                         llenarCombo();
                         limpiarFormario();
                         $('#txtId').val(calEvent.id);
-                        $('#txtCreador').val(calEvent.usercreated);
                         $('#txtDestinatario').val(calEvent.userdestined);
-                        $('#txtTitulo').val(calEvent.title);
                         FechaHora = calEvent.start._i.split(" ");
-                        $('#txtFechaInicio').val(FechaHora[0]);
-                        $('#txtHoraRecordar').val(FechaHora[1]);
-                        $('#txtDiaDuracion').val(calEvent.diaduracion);
-                        $('#txtHoraFrecuencia').val(calEvent.horafrecuente);
-                        $('#txtPreAviso').val(calEvent.preaviso);
-                        $('#txtPosAviso').val(calEvent.posaviso);
-                        $('#description').val(calEvent.description);
-                        $('#color').val(calEvent.color);
+                        $('#txtFecha').val(FechaHora[0]);
+                        $('#txtHora').val(FechaHora[1]);
+
                         $('#eventoModal').modal();
                     },
                     events: 'eventosRenderServlet'

@@ -48,7 +48,6 @@ function main() {
     });
     clearModalDispositivo();
     getUsuariosPacientes();
-
 }
 ;
 
@@ -66,8 +65,8 @@ function agregarDispositivo() {
         banderaDispositivo = 0;
         firebase.database().ref('dispositivos/' + iddispositivo).set({
             alias: alias,
-            mac: mac,
-            paciente: idpaciente
+            id_usuario: idpaciente,
+            mac: mac
         });
         alert('Dispositivo registrado exitosamente');
     }

@@ -37,9 +37,9 @@
             <br/> <br/>
             <button id="btnVisualizar" type="button" onclick="getRecordatorio()">Visualizar</button>
             <button id="btnLimpiar" type="button" onclick="eliminarFila()">Limpiar</button>
-            <button id="btnPDF" type="button">Descargar PDF</button>
+            <button id="btnPDF" type="button" onclick="getPDF()">Descargar PDF</button>
         </div>
-        <div class="container">
+        <div class="container" id="invoice">
             <br/> <br/>
 
             <table class="table" id="contentTable">
